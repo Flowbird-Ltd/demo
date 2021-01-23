@@ -1,0 +1,80 @@
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="pdf_merge.merge_list">
+      <field name="name">pdf_merge merge_list</field>
+      <field name="model">pdf_merge.pdf_merge</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="document_ids"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="pdf_merge.merge_form">
+      <field name="name">pdf_merge merge_form</field>
+      <field name="model">pdf_merge.pdf_merge</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="name"/>
+              <field name="document_ids">
+                <tree>
+                  <field name="name"/>
+                  <field name="document"/>
+                </tree>
+              </field>
+              <field name="final"/>
+              <button name="process" type="object" string="Process"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="pdf_merge.action_window">
+      <field name="name">pdf_merge window</field>
+      <field name="res_model">pdf_merge.pdf_merge</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.ui.view" id="pdf_merge.document_list">
+      <field name="name">pdf_merge document_list</field>
+      <field name="model">pdf_merge.document</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="merge_id"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="pdf_merge.document_form">
+      <field name="name">pdf_merge document_form</field>
+      <field name="model">pdf_merge.document</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="name"/>
+              <field name="merge_id"/>
+              <field name="document"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="pdf_merge.document_action_window">
+      <field name="name">pdf_merge document_window</field>
+      <field name="res_model">pdf_merge.document</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="PDF Merge" id="pdf_merge.menu_root"/>
+
+    <menuitem name="Documents" id="pdf_merge.menu_1" parent="pdf_merge.menu_root" action="pdf_merge.action_window"/>
+    <menuitem name="Uploads" id="pdf_merge.menu_2" parent="pdf_merge.menu_root" action="pdf_merge.document_action_window"/>
+  </data>
+</odoo>

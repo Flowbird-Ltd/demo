@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_pdf_merge_pdf_merge_pdf_merge,pdf_merge.pdf_merge_pdf_merge,pdf_merge.model_pdf_merge_pdf_merge,base.group_user,1,1,1,1
+access_pdf_merge_pdf_merge_document,pdf_merge.pdf_merge_document,pdf_merge.model_pdf_merge_document,base.group_user,1,1,1,1
